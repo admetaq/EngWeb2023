@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "João Pedro"
+    },
+    {
+      "id": "2",
+      "name": "João Paulo"
+    },
+    {
+      "id": "3",
+      "name": "Ricardo Sousa"
+    },
+    {
+      "name": "Nelson Évora",
+      "id": "4"
+    },
+    {
+      "name": "António Campos",
+      "id": "5"
+    },
+    {
+      "name": "Jorge Jesus",
+      "id": "6"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "duedate": "2023-06-15",
+      "who": "Jorge Jesus",
+      "what": "Treinar o Brasil",
+      "done": false
+    },
+    {
+      "duedate": "2026-06-17",
+      "who": "António Campos",
+      "what": "Ir a Paris",
+      "done": false,
+      "id": "2"
+    },
+    {
+      "duedate": "2023-06-16",
+      "who": "João Pedro",
+      "what": "Tirar 20 no Teste",
+      "done": true,
+      "id": "3"
+    }
+  ]
+}
