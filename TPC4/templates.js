@@ -166,7 +166,8 @@ exports.homePage = function (tasks, users, d) {
             `
     for (var i = 0; i < tasks.length; i++) {
         if (tasks[i].done == false) {
-            pagHTML += `<tr><td>${tasks[i].what}</td><td>${tasks[i].duedate}<td>${tasks[i].who}</td><td>[<a href="/tasks/edit/${tasks[i].id}">Edit</a>][<a href="/tasks/done/${tasks[i].id}">Done</a>]</td></tr>`
+            pagHTML += `<tr><td>${tasks[i].what}</td><td>${tasks[i].duedate}<td>${tasks[i].who}</td><td>[<a href="/tasks/edit/${tasks[i].id}">Edit</a>][<a href="/tasks/done/${tasks[i].id}">Done</a>][<a href="/tasks/delete/${tasks[i].id}">Delete</a>]</td>
+            </tr>`
         }
 
     }
@@ -177,11 +178,12 @@ exports.homePage = function (tasks, users, d) {
             <table class="w3-table-all">
             <tr>
                             <th>What</th><th>DueDate</th><th>Who</th>
+                            <th>Actions</th>
             </tr>
             `
     for (var i = 0; i < tasks.length; i++) {
         if (tasks[i].done == true) {
-            pagHTML += `<tr><td>${tasks[i].what}</td><td>${tasks[i].duedate}<td>${tasks[i].who}</td></tr>`
+            pagHTML += `<tr><td>${tasks[i].what}</td><td>${tasks[i].duedate}<td>${tasks[i].who}</td><td>[<a href="/tasks/edit/${tasks[i].id}">Edit</a>][<a href="/tasks/undone/${tasks[i].id}">Undone</a>][<a href="/tasks/delete/${tasks[i].id}">Delete</a>]</td></tr>`
         }
 
     }
@@ -290,7 +292,9 @@ exports.editPage = function (tasks, users, idTask, d) {
             `
     for (var i = 0; i < tasks.length; i++) {
         if (tasks[i].done == false) {
-            pagHTML += `<tr><td>${tasks[i].what}</td><td>${tasks[i].duedate}<td>${tasks[i].who}</td><td>[<a href="/tasks/edit/${tasks[i].id}">Edit</a>][<a href="/tasks/done/${tasks[i].id}">Done</a>]</td></tr>`
+            pagHTML += `<tr><td>${tasks[i].what}</td><td>${tasks[i].duedate}<td>${tasks[i].who}</td><td>[<a href="/tasks/edit/${tasks[i].id}">Edit</a>][<a href="/tasks/done/${tasks[i].id}">Done</a>]
+            [<a href="/tasks/delete/${tasks[i].id}">Delete</a>]</td>
+        </tr>`
         }
 
     }
@@ -301,11 +305,12 @@ exports.editPage = function (tasks, users, idTask, d) {
             <table class="w3-table-all">
             <tr>
                             <th>What</th><th>DueDate</th><th>Who</th>
+                            <th>Actions</th>
             </tr>
             `
     for (var i = 0; i < tasks.length; i++) {
         if (tasks[i].done == true) {
-            pagHTML += `<tr><td>${tasks[i].what}</td><td>${tasks[i].duedate}<td>${tasks[i].who}</td></tr>`
+            pagHTML += `<tr><td>${tasks[i].what}</td><td>${tasks[i].duedate}<td>${tasks[i].who}</td><td>[<a href="/tasks/edit/${tasks[i].id}">Edit</a>][<a href="/tasks/undone/${tasks[i].id}">Undone</a>][<a href="/tasks/delete/${tasks[i].id}">Delete</a>]</td></tr>`
         }
 
     }
