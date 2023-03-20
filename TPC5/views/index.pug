@@ -1,0 +1,72 @@
+extends layout
+
+block content
+    .w3-card-4
+    header.w3-container.w3-red
+        center
+            h1 Tasks
+    center 
+        .w3-bar.w3-border.w3-black
+            a.w3-bar-item.w3-button.w3-hover-white(href='/') Tasks
+            a.w3-bar-item.w3-button.w3-hover-white(href='/users') Users
+    .w3-container
+        table.w3-table-all#maintable
+            tr
+                form.w3-container(method='POST')
+                    fieldset
+                        legend Insert Form
+                        label(for='duedate') Due date
+                        input.w3-input.w3-round(type='date', name='duedate')
+                        label(for='who') Who
+                        select.w3-input.w3-round#who(name='who')
+                            each user in users
+                                option(value=`${user.name}`) #{user.name}
+                        label What
+                        input.w3-input.w3-round(type='text', name='what')
+                        button.w3-btn.w3-red.w3-mb-2(type='submit') Insert
+            tr
+                th To do
+                th Already Done
+            tr
+                td
+                    table.w3-table-all
+                        tr
+                            th What
+                            th DueDate
+                            th Who
+                            th Actions
+                        each task in tasks
+                            if !task.done
+                                tr
+                                    td= task.what
+                                    td= task.duedate
+                                    td= task.who
+                                    td
+                                        a(href=`/tasks/edit/${task.id}`) [Edit]
+                                        a(href=`/tasks/done/${task.id}`) [Done]
+                                        a(href=`/tasks/delete/${task.id}`) [Delete]
+                td
+                    table.w3-table-all
+                        tr
+                            th What
+                            th DueDate
+                            th Who
+                            th Actions
+                        each task in tasks
+                            if task.done
+                                tr
+                                    td= task.what
+                                    td= task.duedate
+                                    td= task.who
+                                    td
+                                        a(href=`/tasks/undone/${task.id}`) [Undone]
+                                        a(href=`/tasks/delete/${task.id}`) [Delete]
+                            
+    footer.w3-container.w3-red
+        center
+            h5 Generated in EngWeb2023 #{d}
+
+
+
+
+        
